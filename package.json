@@ -9,6 +9,8 @@
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.9",
     "nodemailer-smtp-transport": "^2.4.2",
+    "odbc": "^2.4.8",
+    "st-mssql-tools": "^1.0.4",
     "uuid": "^8.3.2"
   },
   "scripts": {
