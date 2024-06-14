@@ -13,7 +13,7 @@ RUN apt-get update && \
     ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev mssql-tools
 
 # Создание символической ссылки на sqltypes.h
-RUN ln -s /usr/include/x86_64-linux-gnu/sqltypes.h /usr/include/sqltypes.h
+RUN ln -s /usr/include/x86_64-linux-gnu/sqltypes.h /usr/include/sqltypes.h || true
 
 # Проверка наличия sqltypes.h
 RUN if [ ! -f /usr/include/sqltypes.h ]; then echo "sqltypes.h not found"; exit 1; else echo "sqltypes.h found"; fi
