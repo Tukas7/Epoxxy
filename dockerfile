@@ -21,4 +21,13 @@ RUN if [ ! -f /usr/include/sqltypes.h ]; then echo "sqltypes.h not found"; exit 
 COPY package*.json ./
 
 # Установите зависимости
-RUN npm
+RUN npm install || cat /root/.npm/_logs/*
+
+# Скопируйте остальные файлы приложения
+COPY . .
+
+# Откройте порт, на котором работает приложение
+EXPOSE 3000
+
+# Запустите приложение
+CMD ["npm", "start"]
