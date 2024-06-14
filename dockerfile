@@ -14,17 +14,11 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
     apt-get update && \
     ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev
 
+# Проверка наличия sqltypes.h
+RUN if [ ! -f /usr/include/sqltypes.h ]; then echo "sqltypes.h not found"; exit 1; else echo "sqltypes.h found"; fi
+
 # Скопируйте package.json и package-lock.json
 COPY package*.json ./
 
 # Установите зависимости
-RUN npm install
-
-# Скопируйте остальные файлы приложения
-COPY . .
-
-# Откройте порт, на котором работает приложение
-EXPOSE 3000
-
-# Запустите приложение
-CMD ["npm", "start"]
+RUN npm
