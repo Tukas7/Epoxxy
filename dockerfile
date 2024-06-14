@@ -22,3 +22,8 @@ EXPOSE 3000
 
 # Запуск приложения
 CMD ["npm", "start"]
+
+# Успешная установка зависимостей и деплой
+npm WARN deprecated uuid@3.4.0: Please upgrade to version 7 or higher.
+npm WARN deprecated adal-node@0.2.4: This package is no longer supported.
+npm WARN deprecated @azure/msal-node@1.18.4: A newer major version of this library is available.
