@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>kklukvvaEpoxy Изделия</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="social-links">
+            <!-- Иконки социальных сетей -->
+            <a href="https://t.me/anjelichhka">Tg</a>
+            <a href="https://vk.com/club224228353">VK</a>
+        </div>
+        <h1 class="title"><a class="titlea" href="index.html">kklukvvaEpoxy</a></h1>
+        <div class="theme-switcher">
+            <button id="themeToggle">
+                <span class="light-theme-icon" style="display:none;">☀️</span>
+                <span class="dark-theme-icon">🌙</span>
+            </button>
+        </div>
+        <div class="burger-menu" onclick="toggleMenu()">☰</div>
+    </header>
+    <nav class="side-menu hidden">
+        <span class="close-menu" onclick="toggleMenu()">×</span>
+        <ul>
+            <li><a href="FAQ.html">О нас</a></li>
+            <li><a href="index.html#check2">Каталог изделий</a></li>
+            <li><a href="index.html#delivery">Информация о доставке</a></li>
+            <li><a href="index.html#footer">Контакты</a></li>
+        </ul>
+    </nav>
+    <script src="script.js"></script>
+    <main>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Слайд 1 -->
+                <div class="swiper-slide" style="background-image:url('images/slider1.jpg');">
+                    <div class="slide-content">
+                        <h2>Изделия из эпоксидной смолы kklukvvaEpoxy</h2>
+                        <p>Ручная работа
+                            воплощаем в жизнь самые смелые идеи
+                            индивидуальный подход для нас не просто слова</p>
+                        <a href="#check1" class="btn">Посмотреть</a>
+                    </div>
+                </div>
+                <!-- Слайд 2 -->
+                <div class="swiper-slide" style="background-image:url('images/slider2.jpg');">
+                    <div class="slide-content">
+                        <h2>Уникальные и креативные изделия</h2>
+                        <p>Необычные, но практичные изделия из эпоксидной смолы</p>
+                        <a href="#check2" class="btn">Посмотреть</a>
+                    </div>
+                </div>
+                <!-- Повторите для других слайдов -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <section class="brand-section">
+            <h2 class="brand-name">kklukvvaEpoxy</h2>
+            <p class="brand-description">Искусство эпоксидной смолы, превращающее обыденные предметы в уникальные произведения искусства. Откройте для себя магию смолы в каждом изделии.</p>
+        </section>
+        <section class="products-section">
+            <h2 class="section-title"><a name="check2"></a>Изделия в наличии</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="images/4.jpg" alt="Изделие 1" class="product-image">
+                    <h3 class="product-name">Часы</h3>
+                    
+                    <a href="Clocks.html" class="btn">Подробнее</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/5.jpg" alt="Изделие 2" class="product-image">
+                    <h3 class="product-name">Бюжутерия</h3>
+                    <a href="decoration.html" class="btn">Подробнее</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/6.jpg" alt="Изделие 2" class="product-image">
+                    <h3 class="product-name">Подарочные наборы</h3>
+                    <a href="Surprise.html" class="btn">Подробнее</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/7.jpg" alt="Изделие 2" class="product-image">
+                    <h3 class="product-name">Картины</h3>
+                    <a href="Image.html" class="btn">Подробнее</a>
+                </div>
+            </div>
+        </section>
+        <div class="contact-form"></div>
+        <section class="contact-form-section">
+            <h2 name=""><a name="check1"></a>Если вы хотите с нами связаться, оставьте ваши данные ниже</h2>
+            <form id="contactForm">
+                <div class="form-field">
+                    <label for="userName">Ваше имя</label>
+                    <input type="text" id="userName" name="userName" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-field">
+                    <label for="userPhone">Ваш телефон</label>
+                    <input type="tel" id="userPhone" name="userPhone" placeholder="+7 911 999 99 99" required>
+                </div>
+                <div class="form-field">
+                    <label for="messenger">В каком мессенджере с вами связаться?</label>
+                    <select id="messenger" name="messenger">
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="telegram">Telegram</option>
+                        <option value="viber">Viber</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="userQuestion">Какой у вас вопрос?</label>
+                    <textarea id="userQuestion" name="userQuestion" placeholder="Пожалуйста, укажите интересующий вас вопрос" required></textarea>
+                </div>
+                <div class="form-field">
+                    <button class="btn" onclick="checkouts()">Отправить</button>
+                    <p>Нажимая кнопку отправки, вы соглашаетесь с <a href="#">политикой конфиденциальности</a>.</p>
+                </div>
+            </form>
+            <p>Изделия в наличии и под заказ. Срок изготовления от 7 дней.</p>
+            <p>После оформления заказа администратор свяжется с вами для уточнения данных по цвету и размеру.</p>
+        </section>
+        <div class="delivery-info"><a name="delivery"></a>
+            <h3>Доставка в Тюмень</h3>
+            <p>Мы находимся в Тюмени. Доступны следующие варианты доставки:</p>
+            <ul>
+                <li>Доставка по Тюмени - курьер</li>
+                <li>Доставка по России - СДЭК, Почта России, Boxberry</li>
+            </ul>
+            <p>Если вы получили поврежденное изделие, возврат осуществляется в течение 2-х недель с момента получения изделия. Отправка изделия при возврате осуществляется за счет клиента.</p>
+        </div>
+    </div>
+        <section class="care-instructions">
+            <h2>Рекомендации по уходу за изделием из смолы</h2>
+            <ul>
+                <li>Мыть в теплой или холодной воде</li>
+                <li>После мойки, протереть насухо, чтобы не осталось следов и разводов от воды (используйте мягкую фланелевую салфетку)</li>
+                <li>Не используйте средства, содержащие растворители, обезжиривающие вещества, спирт, ацетон и т.п.</li>
+                <li>Не резать ножом на декоративной части (рисунке из смолы)</li>
+                <li>Не следует чистить щеткой и использовать абразивные, либо порошковые вещества</li>
+                <li>Не греть в СВЧ печи</li>
+                <li>Не мыть в посудомоечной машине</li>
+                <li>Не оставлять под прямыми солнечными лучами</li>
+                <li>Не ставить горячее (максимум до 50 градусов)</li>
+                <li>Не рекомендуем использовать для горячих блюд</li>
+            </ul>
+        </section>
+        <h2 class="Otziv">Отзывы наших клиентов</h2>
+        <div id="reviewsContainer" class="swiper-container">
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-paginationn"></div>
+            <div class="swiper-button-prevv"></div>
+            <div class="swiper-button-nextt"></div>
+        </div>
+        <h2 class="Otziv">Оставьте свой отзыв</h2>
+        <section class="reviews-section">
+            
+            <form id="reviewForm" class="review-form">
+                <div class="form-field">
+                    <label for="userNamee" class="form-label">Ваше имя:</label>
+                    <input type="text" id="userNamee" name="userNamee" class="form-input" required>
+                </div>
+                <div class="form-field">
+                    <label for="userEmail" class="form-label">Ваш Email:</label>
+                    <input type="email" id="userEmail" name="userEmail" class="form-input" required>
+                </div>
+                <div class="form-field">
+                    <label for="userReview" class="form-label">Ваш отзыв:</label>
+                    <textarea id="userReview" name="userReview" class="form-textarea" required></textarea>
+                </div>
+                <button type="submit" class="form-submit-btn">Отправить отзыв</button>
+            </form>
+        </section>
+        <footer class="site-footer"><a name="footer"></a>
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>kklukvvaEpoxy</h3>
+                    <p>Мы создаем уникальные изделия из эпоксидной смолы, которые превратят ваш интерьер в произведение искусства.</p>
+                    
+                </div>
+                <div class="footer-links">
+                    <h3>Полезные ссылки</h3>
+                    <ul>
+                        <li><a href="FAQ.html">О нас</a></li>
+                        <li><a href="index.html#check2">Продукция</a></li>
+                        <li><a href="polit.html">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <div class="social-icons">
+                        <a href="https://vk.com/club224228353"><img src="images/vk-communication-internet-network-chat-interaction-svgrepo-com.svg" alt="Vk"></a>
+                        <a href="@anjelichhka"><img src="images/telegram-svgrepo-com.svg" alt="tg"></a>
+                        <div>kklukvvaa@mail.ru</div>
+                        <div>+79523403701</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eppoxy Art. Все права защищены.</p>
+            </div>
+        </footer>
+    </main>
+</body>
+<script>
+    var swiper = new Swiper('.mySwiper', {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const reviewsContainer = document.getElementById('reviewsContainer');
+
+        function fetchReviews() {
+            // Получение отзывов с сервера
+            fetch('/get-reviews')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch reviews');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Очистить текущие отзывы перед обновлением
+                reviewsContainer.querySelector('.swiper-wrapper').innerHTML = '';
+
+                // Добавить каждый отзыв в слайдер
+                data.forEach(review => {
+                    const reviewElement = document.createElement('div');
+                    reviewElement.classList.add('swiper-slide');
+                    reviewElement.innerHTML = `
+                        <div class="review-item">
+                            <div class="review-img">
+                                <img class="img-avatar" src="images/user-avatar.png" alt="${review.UserName}">
+                            </div>
+                            <div class="review-info">
+                                <strong class="review-label">Имя:</strong> 
+                                <span class="review-value">${review.UserName}</span>
+                            </div>
+                            
+                            <div class="review-info">
+                                <strong class="review-label">Отзыв:</strong> 
+                                <span class="review-value">${review.UserReview}</span>
+                            </div>
+                        </div>
+                    `;
+                    reviewsContainer.querySelector('.swiper-wrapper').appendChild(reviewElement);
+                });
+
+                // Инициализировать Swiper после добавления отзывов
+                initSwiper();
+            })
+            .catch(error => {
+                console.error('Error fetching reviews:', error);
+            });
+        }
+        // Инициализация Swiper
+        function initSwiper() {
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                pagination: {
+                    el: '.swiper-paginationn',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-nextt',
+                    prevEl: '.swiper-button-prevv',
+                },
+            });
+        }
+        // Загрузить отзывы после загрузки страницы
+        fetchReviews();
+    });
+</script>
+<script src="server.js"></script>
+</html>

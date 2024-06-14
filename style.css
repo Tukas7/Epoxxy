@@ -1,0 +1,678 @@
+
+html, body {
+    height: 100%; /* Устанавливаем высоту для body и html, чтобы слайдер мог занять 90% */
+    margin: 0; /* Убираем стандартные отступы */
+}
+body, h1, ul, li, a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+.glav{
+    text-decoration: none;
+    color: #FFF;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282828;
+    color: white;
+    padding: 20px;
+}
+
+.titlea {
+    font-size: 30px;
+    color: white;
+}
+
+.social-links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.burger-menu, .close-menu {
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.side-menu {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #FFF;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding-top: 20px; /* Для крестика */
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #282828;
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+.swiper {
+    width: 100%;
+    height: 75vh; /* Убедитесь, что слайдер занимает 90% высоты видимого экрана */
+    z-index: 1;
+    position: relative;
+    
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.slide-content {
+    color: #fff;
+    max-width: 600px; /* Ограничиваем ширину содержимого для лучшего визуального восприятия */
+    margin: 0 auto; /* Это центрирует .slide-content, если его ширина меньше ширины .swiper-slide */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+    
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.brand-section {
+    background-color: #f2f2f2;;
+    padding: 40px 20px; /* Паддинги для воздуха вокруг контента */
+    text-align: center; /* Центрирование текста */
+    
+}
+
+.brand-name {
+    font-size: 24px; /* Большой размер шрифта для названия */
+    color: #333; /* Темный цвет текста для контраста */
+    margin-bottom: 15px; /* Отступ снизу для разделения названия и описания */
+}
+
+.brand-description {
+    font-size: 16px; /* Оптимальный размер шрифта для описания */
+    color: #666; /* Светлый цвет текста для описания */
+    max-width: 600px; /* Максимальная ширина описания для лучшего чтения */
+    margin: 0 auto; /* Автоматические маргины для центрирования блока на странице */
+}
+.products-section {
+    padding: 40px 0;
+    
+    text-align: center; /* Центрирование заголовка */
+}
+
+.section-title {
+    margin-bottom: 30px;
+    font-size: 24px; /* Увеличение размера для визуальной иерархии */
+    color: #333; /* Темный цвет для лучшего восприятия */
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка карточек */
+    gap: 20px; /* Отступы между карточками */
+    padding: 0 20px; /* Паддинги для родительского контейнера */
+}
+
+.product-card {
+    background-color: #ffffff; /* Белый фон карточки */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
+    overflow: hidden; /* Обрезка изображения по контуру карточки */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Плавное увеличение и тень при наведении */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Поднятие карточки при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Увеличение тени при наведении */
+}
+
+.product-image {
+    width: 100%; /* Адаптивная ширина изображения */
+    height: 300px; /* Автоматическая высота для сохранения пропорций */
+    border-bottom: 1px solid #eee; /* Легкая граница между изображением и текстом */
+}
+
+.product-name {
+    margin: 20px 0 10px; /* Отступы для названия продукта */
+    font-size: 20px; /* Размер шрифта для названия */
+    color: #333; /* Цвет текста */
+}
+
+.product-description {
+    padding: 0 15px; /* Паддинги для описания */
+    color: #666; /* Светлый цвет текста для описания */
+}
+
+.btn {
+    display: inline-block;
+    background-color: #007bff; /* Синий фон кнопки */
+    color: #ffffff; /* Белый текст кнопки */
+    text-decoration: none; /* Удаление подчеркивания текста */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    margin: 15px 0 20px; /* Отступы вокруг кнопки */
+    border-radius: 5px; /* Скругление углов кнопки */
+    transition: background-color 0.3s; /* Плавное изменение фона кнопки */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Темно-синий фон кнопки при наведении */
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: calc(50% - 20px); /* Адаптация под мобильные устройства */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%; /* Для очень маленьких экранов */
+    }
+}
+
+.contact-form-section {
+    background-color: #ffffff; /* Используем белый для более чистого фона */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 10px auto; /* Центрируем блок на странице */
+    max-width: 600px; /* Ограничиваем максимальную ширину формы */
+    border-radius: 8px; /* Скругляем углы */
+}
+
+.contact-form-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600; /* Делаем шрифт названия более жирным */
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555; /* Немного затемняем текст */
+    font-size: 16px; /* Увеличиваем размер шрифта для лучшей видимости */
+}
+
+.form-field input[type="text"],
+.form-field input[type="tel"],
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px; /* Увеличиваем отступ для большего воздуха */
+    border: 2px solid #eee; /* Делаем границу более тонкой и светлой */
+    border-radius: 5px; /* Скругляем углы полей ввода */
+    transition: border-color 0.3s; /* Добавляем анимацию для границ */
+}
+
+.form-field input[type="text"]:focus,
+.form-field input[type="tel"]:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: #007bff; /* Изменяем цвет границы при фокусе */
+    outline: none; /* Убираем стандартный outline */
+}
+
+.form-field button[type="submit"] {
+    background-color: #007bff; /* Синий фон */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Плавное изменение фона */
+}
+
+.form-field button[type="submit"]:hover {
+    background-color: #0056b3; /* Темно-синий фон при наведении */
+}
+
+.form-field p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px; /* Добавляем пространство над ссылкой на политику */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+}
+
+.contact-form-section h2{
+    text-align: center;
+}
+
+.care-instructions {
+    text-align: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    margin: 40px auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.care-instructions h2 {
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.care-instructions ul {
+    list-style: inside square;
+    padding: 0;
+}
+
+.care-instructions li {
+    text-align: left;
+    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.care-instructions li:last-child {
+    margin-bottom: 0;
+}
+.site-footer {
+    margin-top: 25px;
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.footer-about,
+.footer-links,
+.footer-subscribe {
+    padding: 20px;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-subscribe h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-about p,
+.footer-links ul,
+.footer-subscribe form {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #007bff;
+}
+
+.social-icons a {
+    padding-top: 8px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.social-icons a img {
+    width: 50px; /* Устанавливаем желаемый размер иконок */
+    height: auto; /* Поддерживаем пропорциональное изменение высоты */
+}
+
+.footer-subscribe form {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-subscribe input[type="email"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    color: #333;
+}
+
+.footer-subscribe button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reviews-section {
+    margin-bottom: 50px;
+}
+
+.reviews-container {
+    margin-bottom: 20px;
+}
+
+.review-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.review-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+.review-info {
+    margin-bottom: 10px;
+}
+
+.review-label {
+    font-weight: bold;
+}
+
+.review-value {
+    margin-left: 5px;
+}
+
+
+.swiper-slide {
+    width: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Стили для контейнера слайдера с отзывами */
+#reviewsContainer {
+    margin-top: 50px;
+    width: 80%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стили для отзывов */
+.review-item {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-info {
+    text-align: left;
+    
+}
+
+.review-label {
+    font-weight: bold;
+}
+
+.review-value {
+    margin-left: 10px;
+}
+
+/* Стили для пагинации слайдера */
+.swiper-paginationn {
+    
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.swiper-paginationn .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #007bff;
+    opacity: 0.5;
+    border-radius: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.swiper-paginationn .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.img-avatar {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    
+}
+.Otziv{
+    text-align: center;
+}
+.delivery-info {
+    background-color: #ffff; /* Цвет фона */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Скругление углов */
+    padding: 40px; /* Внутренний отступ */
+    margin-bottom: 40px; /* Отступ снизу */
+    max-width: 600px; /* Максимальная ширина блока */
+    margin: 0 auto; /* Центрирование блока по горизонтали */
+}
+
+.delivery-info h3 {
+    color: #333; /* Цвет заголовка */
+    font-size: 24px; /* Размер шрифта заголовка */
+}
+
+.delivery-info p {
+    color: #666; /* Цвет текста */
+    font-size: 16px; /* Размер шрифта текста */
+    line-height: 1.6; /* Межстрочный интервал */
+}
+
+.delivery-info ul {
+    list-style-type: none; /* Убираем маркеры у списка */
+    padding: 0; /* Убираем внутренний отступ у списка */
+}
+
+.delivery-info li {
+    margin-bottom: 10px; /* Отступ между элементами списка */
+}
+
+.delivery-info a {
+    color: #007bff; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.delivery-info a:hover {
+    text-decoration: underline; /* Подчеркивание ссылок при наведении */
+}
+
+.intro-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-family: 'Georgia';
+
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    opacity: 1;
+    color: #fff;
+    font-family: 'Georgia';
+
+}
+.footer-about p{
+    color:#fff;
+}
+
+.social-icons{
+    color: #FFF;
+}
+.intro-text:last-child {
+    margin-bottom: 0;
+}
+.faq-question:hover {
+    color: #0056b3;
+}
+/* Базовые переменные для тёмной темы с тёплыми тонами */
+:root {
+    --background-dark: #162447;
+    --text-color-dark: #185491;
+    --primary-color-dark: #1F4068;
+    --secondary-color-dark: #1B1B2F;
+    --accent-color-dark: #E43F5A;
+    --border-color-dark: #E1E9F1;
+}
+
+/* Стили для тёмной темы */
+.dark-theme {
+    --background-color: var(--background-dark);
+    --text-color: var(--text-color-dark);
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --border-color: var(--border-color-dark);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.dark-theme header,
+.dark-theme .side-menu {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.dark-theme a {
+    color: var(--accent-color);
+}
+
+.dark-theme .product-card,
+.dark-theme .contact-form-section,
+.dark-theme .brand-section,
+.dark-theme .delivery-info,
+.dark-theme .care-instructions,
+.dark-theme .site-footer,
+.dark-theme .review-item,
+
+.dark-theme .footer-about,
+.dark-theme .footer-links,
+.dark-theme .footer-subscribe {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.dark-theme .footer-links ul li a:hover,
+.dark-theme .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+
+
+.theme-switcher {
+    position: fixed;
+    top: 32px;
+    right: 50px;
+    z-index: 100;
+}

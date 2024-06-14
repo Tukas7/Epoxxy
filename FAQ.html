@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FAQ - KKlukvva Epoxy</title>
+    <style>
+        /* Пример стилей для FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .faq-description {
+            margin-bottom: 20px;
+        }
+        .faq-question {
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .faq-answer {
+            display: none;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="social-links">
+            <!-- Иконки социальных сетей -->
+            <a href="https://facebook.com">Inst</a>
+            <a href="https://instagram.com">VK</a>
+        </div>
+        <h1 class="title"><a class="titlea" href="index.html">kklukvvaEpoxy</a></h1>
+        
+        
+        
+        <div class="burger-menu" onclick="toggleMenu()">☰</div>
+    </header>
+    <nav class="side-menu hidden">
+        <span class="close-menu" onclick="toggleMenu()">×</span>
+        <ul>
+            <li><a href="FAQ.html">О нас</a></li>
+            <li><a href="index.html#check2">Каталог изделий</a></li>
+            <li><a href="index.html#delivery">Информация о доставке</a></li>
+            <li><a href="index.html#footer">Контакты</a></li>
+        </ul>
+    </nav>
+    <script src="script.js"></script>
+    <div class="faq-container">
+        <h1>Часто задаваемые вопросы (FAQ)</h1>
+        <div class="faq-description">
+            <p>Добро пожаловать в магазин эпоксидной смолы KKlukvva Epoxy! Мы предлагаем широкий выбор эпоксидной смолы и материалов для создания креативных проектов. Наши продукты подходят для различных видов рукоделия, литья, украшений и многое другое.</p>
+            <p>Если у вас возникли вопросы, ознакомьтесь с нашим FAQ ниже или свяжитесь с нами для получения дополнительной информации.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(1)">1. Что такое эпоксидная смола?</div>
+            <div class="faq-answer" id="answer1">
+                Эпоксидная смола - это двухкомпонентный материал, который используется для создания различных изделий, включая украшения, поделки, напольные покрытия и многое другое. Она характеризуется прозрачностью, прочностью и устойчивостью к воздействию химических веществ.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(2)">2. Как использовать эпоксидную смолу для литья?</div>
+            <div class="faq-answer" id="answer2">
+                Для литья с эпоксидной смолой вам понадобятся формы из силикона или другого материала, смешивающие емкости, палочки для размешивания, а также красители и добавки (если необходимо). Подготовьте поверхность и формы, затем аккуратно размешайте компоненты смолы с отвердителем и заливайте их в форму. Дайте смоле высохнуть и получите готовое изделие.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(3)">3. Какие меры безопасности нужно соблюдать при работе с эпоксидной смолой?</div>
+            <div class="faq-answer" id="answer3">
+                При работе с эпоксидной смолой следует носить защитные очки и перчатки, чтобы избежать контакта с кожей и глазами. Работать в хорошо вентилируемом помещении или на открытом воздухе. Избегайте длительного вдыхания паров смолы. При возникновении раздражения или аллергических реакций обратитесь к врачу.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(4)">4. Могу ли я использовать эпоксидную смолу для создания украшений и поделок?</div>
+            <div class="faq-answer" id="answer4">
+                Да, эпоксидную смолу можно использовать для создания различных украшений, поделок, а также для литья в формы и создания инкрустаций.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(5)">5. Как очистить инструменты после использования эпоксидной смолы?</div>
+            <div class="faq-answer" id="answer5">
+                Инструменты, загрязненные эпоксидной смолой, можно очистить с помощью специальных растворителей или уайт-спирита. Важно проветривать помещение при использовании этих средств и соблюдать меры безопасности.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(6)">6. Могу ли я добавлять красители или блестки в эпоксидную смолу?</div>
+            <div class="faq-answer" id="answer6">
+                Да, вы можете добавлять красители, пигменты, блестки и другие добавки в эпоксидную смолу для придания ей различных цветов и эффектов.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(`answer${id}`);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+    <footer class="site-footer"><a name="footer"></a>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>kklukvvaEpoxy</h3>
+                <p>Мы создаем уникальные изделия из эпоксидной смолы, которые превратят ваш интерьер в произведение искусства.</p>
+                
+            </div>
+            <div class="footer-links">
+                <h3>Полезные ссылки</h3>
+                <ul>
+                    <li><a href="FAQ.html">О нас</a></li>
+                    <li><a href="index.html#check2">Продукция</a></li>
+                    <li><a href="polit.html">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+            <div class="footer-subscribe">
+                
+                <div class="social-icons">
+                    <a href="https://vk.com/club224228353"><img src="images/vk-communication-internet-network-chat-interaction-svgrepo-com.svg" alt="Vk"></a>
+                    <a href="@anjelichhka"><img src="images/telegram-svgrepo-com.svg" alt="tg"></a>
+                    <div>kklukvvaa@mail.ru</div>
+                    <div>+79523403701</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Eppoxy Art. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
