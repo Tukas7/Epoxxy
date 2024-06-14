@@ -1,28 +1,33 @@
-# Используем официальный образ Node.js
+# Используйте базовый образ
 FROM node:18
 
-# Устанавливаем рабочую директорию
+# Установите рабочую директорию
 WORKDIR /app
 
-# Устанавливаем зависимости для компиляции пакетов Node.js
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    unixodbc-dev \
-    python3 \
-    make \
-    g++
+# Установите необходимые пакеты и ODBC драйверы
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip python3-dev build-essential apt-transport-https curl gnupg2 && \
+    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
+    curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
+    apt-get update && \
+    ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev && \
+    ln -s /usr/include/x86_64-linux-gnu/sqltypes.h /usr/include/sqltypes.h && \
+    odbcinst -j
 
-# Копируем файл package.json и package-lock.json (если есть)
+# Проверка наличия sqltypes.h
+RUN if [ ! -f /usr/include/sqltypes.h ]; then echo "sqltypes.h not found"; exit 1; else echo "sqltypes.h found"; fi
+
+# Скопируйте package.json и package-lock.json
 COPY package*.json ./
 
-# Устанавливаем зависимости приложения
-RUN npm install
+# Установите зависимости с отладочной информацией
+RUN npm install || (echo "npm install failed"; cat /root/.npm/_logs/*; exit 1)
 
-# Копируем файлы приложения
+# Скопируйте остальные файлы приложения
 COPY . .
 
-# Открываем порт
+# Откройте порт, на котором работает приложение
 EXPOSE 3000
 
-# Запускаем приложение
-CMD ["node", "app.js"]
+# Запустите приложение
+CMD ["npm", "start"]
