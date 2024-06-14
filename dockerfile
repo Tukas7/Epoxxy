@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Установите необходимые пакеты
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip python3-dev build-essential unixodbc-dev
+    apt-get install -y python3 python3-pip python3-dev build-essential unixodbc-dev msodbcsql17
 
 # Скопируйте package.json и package-lock.json
 COPY package*.json ./
