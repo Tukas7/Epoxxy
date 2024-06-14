@@ -8,17 +8,21 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Конфигурация подключения к базе данных
+
+
 const config = {
-  database: 'Eppoxy',
-  server: 'DESKTOP-P5P1QBE\\TUKAS',
-
-  driver: 'msnodesqlv8',
-  options: {
-    trustedConnection: true,
-    }
-};
-
-
+    user: 'Ilusha', // Имя пользователя для SQL Server
+    password: 'qwerty123321F', // Пароль пользователя для SQL Server
+    database: 'Ilusha',
+    server: '92.53.107.236', // IP-адрес или доменное имя удаленного сервера
+    port: 1433, // Порт, на котором SQL Server слушает (по умолчанию 1433)
+    driver: 'msnodesqlv8',
+    options: {
+      enableArithAbort: true,
+      useUTC: true,
+      trustServerCertificate: true, // Используйте это, если у вас нет доверенного сертификата
+    },
+  };
 const uploadDir = path.join(__dirname, 'images');
 
 // Настройка Multer для сохранения загруженных изображений
