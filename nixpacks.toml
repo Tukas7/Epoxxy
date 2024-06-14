@@ -1,6 +1,0 @@
-[dependencies]
-python = "3.9"
-odbc = "2.3.7"
-
-[build]
-command = "nix-env -if .nixpacks/nixpkgs-bdd2f439c62aa0b8aa97f5c784a965c23f968fe6.nix && nix-collect-garbage -d && npm ci"
