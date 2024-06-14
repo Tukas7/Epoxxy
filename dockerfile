@@ -17,4 +17,4 @@ RUN npm install
 COPY . .
 
 # Указываем команду для запуска приложения
-CMD ["node", "index.js"]
+CMD ["node", "server.js"]
