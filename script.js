@@ -18,9 +18,9 @@ async function loadProductsByCategory(category) {
         const productElement = document.createElement('div');
         productElement.className = 'product-card';
         productElement.innerHTML = `
-            <div><img class="product-image" src="${product.ImageURL}" alt="${product.Name}" class="product-image"></div>
-            <div class="product-name">${product.Name}</div>
-            <div class="Price">${product.Price} р.</div>
+            <div><img class="product-image" src="${product.imageurl}" alt="${product.Name}" class="product-image"></div>
+            <div class="product-name">${product.name}</div>
+            <div class="Price">${product.price} р.</div>
         `;
         productsContainer.appendChild(productElement);
 
@@ -37,14 +37,14 @@ loadProductsByCategory(category);
 
 
 function showProductDetails(product) {
-    document.getElementById('modalProductImage').src = product.ImageURL;
-    document.getElementById('modalProductImage').alt = product.Name;
-    document.getElementById('modalProductName').textContent = product.Name;
-    document.getElementById('modalProductDescription').textContent = product.Description;
-    document.getElementById('modalProductPrice').textContent = `Цена: ${product.Price}`;
+    document.getElementById('modalProductImage').src = product.imageurl;
+    document.getElementById('modalProductImage').alt = product.name;
+    document.getElementById('modalProductName').textContent = product.name;
+    document.getElementById('modalProductDescription').textContent = product.description;
+    document.getElementById('modalProductPrice').textContent = `Цена: ${product.price}`;
     
     // Измените следующую строку, чтобы передать ImageURL в addToCart
-    document.getElementById('addToCartBtn').onclick = () => addToCart(product.ProductID, product.ImageURL);
+    document.getElementById('addToCartBtn').onclick = () => addToCart(product.productid, product.Imageurl);
     
     document.querySelector('.modal').style.display = 'block';
 }
@@ -54,8 +54,8 @@ function showProductDetails(product) {
 
 
 
-async function addToCart(productID, imageURL) {
-    const userID = 1;
+async function addToCart(productid, imageurl) {
+    const userid = 1;
     const quantity = 1;
 
     try {
@@ -64,7 +64,7 @@ async function addToCart(productID, imageURL) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ productID, userID, quantity, imageURL }), // Добавьте imageURL в запрос
+            body: JSON.stringify({ productid, userid, quantity, imageurl }), // Добавьте imageURL в запрос
         });
 
         if (!response.ok) throw new Error('Network response was not ok');
@@ -73,6 +73,7 @@ async function addToCart(productID, imageURL) {
         if (data.success) {
             console.log(data.message);
             updateCart();
+            alert('Продукт успешно добавлен в корзину');
         } else {
             throw new Error(data.message);
         }
@@ -100,21 +101,21 @@ function openCart() {
             const itemDiv = document.createElement('div');
             itemDiv.innerHTML = `
                 <div class="cart-item">
-                <img src="${item.ImageURL}" alt="${item.Name}" class="cart-item-image">
+                <img src="${item.imageurl}" alt="${item.name}" class="cart-item-image">
                     <div class="item-info">
-                        <span class="item-name">${item.Name}</span>
+                        <span class="item-name">${item.name}</span>
                         <span class="item-quantity">
-                            <button class="decrement-button" onclick="decrementCartItem(${item.ProductID}, ${item.Quantity})">-</button>
-                            ${item.Quantity} шт.
-                            <button class="increment-button" onclick="incrementCartItem(${item.ProductID}, ${item.Quantity})">+</button>
-                            - ${item.Price} р.
+                            <button class="decrement-button" onclick="decrementCartItem(${item.productid}, ${item.quantity})">-</button>
+                            ${item.quantity} шт.
+                            <button class="increment-button" onclick="incrementCartItem(${item.productid}, ${item.quantity})">+</button>
+                            - ${item.price} р.
                         </span>
                     </div>
-                    <button class="remove-button" onclick="removeFromCart(${item.ProductID})">Удалить</button>
+                    <button class="remove-button" onclick="removeFromCart(${item.productid})">Удалить</button>
                 </div>
             `;
             cartItemsDiv.appendChild(itemDiv);
-            totalAmount += item.Quantity * item.Price;
+            totalAmount += item.quantity * item.price;
         });
         const cartTotalDiv = document.getElementById('cartTotal');
         cartTotalDiv.textContent = `Общая сумма заказа: ${totalAmount} р.`;
@@ -143,7 +144,7 @@ function clearCart() {
     closeCart();
 }
 // Функция для удаления товара из корзины
-function removeFromCart(productID) {
+function removeFromCart(productid) {
     const userID = 1; // Получите ID пользователя, например, из сессии или локального хранилища
 
     // Отправьте запрос на сервер для удаления товара
@@ -152,7 +153,7 @@ function removeFromCart(productID) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ productID, userID }),
+        body: JSON.stringify({ productid, userID }),
     })
     .then(response => response.json())
     .then(data => {
@@ -186,23 +187,23 @@ async function updateCart() {
             const itemDiv = document.createElement('div');
             itemDiv.innerHTML = `
             <div class="cart-item">
-            <img src="${item.ImageURL}" alt="${item.Name}" class="cart-item-image">
+            <img src="${item.imageurl}" alt="${item.name}" class="cart-item-image">
                 <div class="item-info">
-                    <span class="item-name">${item.Name}</span>
+                    <span class="item-name">${item.name}</span>
                     <span class="item-quantity">
-                        <button class="decrement-button" onclick="decrementCartItem(${item.ProductID}, ${item.Quantity})">-</button>
-                        ${item.Quantity} шт.
-                        <button class="increment-button" onclick="incrementCartItem(${item.ProductID}, ${item.Quantity})">+</button>
-                        - ${item.Price} р.
+                        <button class="decrement-button" onclick="decrementCartItem(${item.productid}, ${item.quantity})">-</button>
+                        ${item.quantity} шт.
+                        <button class="increment-button" onclick="incrementCartItem(${item.productid}, ${item.quantity})">+</button>
+                        - ${item.price} р.
                     </span>
                 </div>
-                <button class="remove-button" onclick="removeFromCart(${item.ProductID})">Удалить</button>
+                <button class="remove-button" onclick="removeFromCart(${item.productid})">Удалить</button>
             </div>
             `;
             cartItemsDiv.appendChild(itemDiv);
 
             // Обновляем общую сумму с каждым товаром
-            totalAmount += item.Quantity * item.Price;
+            totalAmount += item.quantity * item.price;
         });
 
         // Отобразите общую сумму заказа
@@ -309,9 +310,9 @@ async function updateProductList(data) {
         const productElement = document.createElement('div');
         productElement.className = 'product-card';
         productElement.innerHTML = `
-            <div><img class="product-image" src="${product.ImageURL}" alt="${product.Name}" class="product-image"></div>
-            <div class="product-name">${product.Name}</div>
-            <div class="Price">${product.Price} р.</div>
+            <div><img class="product-image" src="${product.imageurl}" alt="${product.name}" class="product-image"></div>
+            <div class="product-name">${product.name}</div>
+            <div class="Price">${product.price} р.</div>
         `;
         productsContainer.appendChild(productElement);
 
