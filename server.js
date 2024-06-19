@@ -201,10 +201,10 @@ app.get('/products/:category/sort-by-price', async (req, res) => {
 });
 
 app.post('/submit-review', async (req, res) => {
-  const { userName, userEmail, userReview } = req.body;
+  const { userNamee, userEmail, userReview } = req.body;
 
   try {
-    await executeQuery('INSERT INTO Reviews (UserName, UserEmail, UserReview) VALUES ($1, $2, $3)', [userName, userEmail, userReview]);
+    await executeQuery('INSERT INTO Reviews (UserName, UserEmail, UserReview) VALUES ($1, $2, $3)', [userNamee, userEmail, userReview]);
     res.status(200).json({ success: true, message: 'Отзыв успешно отправлен' });
   } catch (error) {
     console.error('Ошибка отправки отзыва:', error);
