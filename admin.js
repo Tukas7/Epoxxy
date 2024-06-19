@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
             reviews.forEach(review => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${review.UserName}</td>
-                    <td>${review.UsereMail}</td>
-                    <td>${review.UserReview}</td>
-                    <td><button onclick="deleteReview(${review.ReviewID})">Удалить</button></td>
+                    <td>${review.username}</td>
+                    <td>${review.useremail}</td>
+                    <td>${review.userreview}</td>
+                    <td><button onclick="deleteReview(${review.reviewid})">Удалить</button></td>
                 `;
                 reviewTableBody.appendChild(row);
             });
